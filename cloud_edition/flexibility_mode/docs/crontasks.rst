@@ -36,14 +36,21 @@ You can find below a full example of the crontab that you can use:
 
     SHELL=“/usr/local/sbin/cron_wrapper.sh”
     MAILTO="projectmanager@acme.com"
-    #Ansible: pim:versioning:refresh
-    30 1 * * * pim:versioning:refresh --env=prod
+   
     #Ansible: akeneo:rule:run
-    15 * * * * akeneo:rule:run --env=prod
+    15 12,20 * * * akeneo:rule:run --env=prod
+    #Ansible: pim:versioning:refresh
+    30 16,23 * * * pim:versioning:refresh --env=prod
     #Ansible: pim:completeness:calculate
-    45 */2* * * pim:completeness:calculate --env=prod
+    45 */2 * * * pim:completeness:calculate --env=prod
     #Ansible: akeneo:batch:purge-job-execution
     20 0 1 * * akeneo:batch:purge-job-execution --env=prod
+    #Ansible: pimee:project:notify-before-due-date
+    20 0 * * * pimee:project:notify-before-due-date --env=prod
+    #Ansible: pim:asset:send-expiration-notification
+    0 1 * * * pim:asset:send-expiration-notification --env=prod
+    #Ansible: pimee:project:recalculate
+    0 20 * * * pimee:project:recalculate --env=prod    
 
     # My custom jobs
     SHELL=/bin/bash
