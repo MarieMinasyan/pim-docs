@@ -50,7 +50,7 @@ You can find below a full example of the crontab that you can use:
     #Ansible: pim:asset:send-expiration-notification
     0 1 * * * pim:asset:send-expiration-notification --env=prod
     #Ansible: pimee:project:recalculate
-    0 20 * * * pimee:project:recalculate --env=prod    
+    0 2 * * * pimee:project:recalculate --env=prod    
 
     # My custom jobs
     SHELL=/bin/bash
